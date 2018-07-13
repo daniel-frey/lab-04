@@ -1,34 +1,34 @@
 <script type="text/javascript">
-var response;
-var questions = ["Uno", "Dos", "Tres"];
-var answers = ["1", "2", "3"];
-var userAnswers = [];
-var score = 0;
-var cheers;
+  var response;
+  var questions = ["Uno", "Dos", "Tres"];
+  var answers = ["1", "2", "3"];
+  var userAnswers = [];
+  var score = 0;
+  var cheers;
 
-for (var i=0; i<questions.length; i++) {
-  response = prompt(questions[i]);
-  userAnswers[i] = response;
-  if (userAnswers.length === questions.length) {
-    //End of questions, compare answers
-    checkAnswers();
-  }
-}
-
-function checkAnswers() {
-  for (var i=0; i < userAnswers.length; i++) {
-    if (userAnswers[i] === answers[i]) {
-      score++;    
+  for (var i = 0; i < questions.length; i++) {
+    response = prompt(questions[i]);
+    userAnswers[i] = response;
+    if (userAnswers.length === questions.length) {
+      //End of questions, compare answers
+      checkAnswers();
     }
   }
-  if (score > 0) {
-    cheers = 'Nice work!'
+
+  function checkAnswers() {
+    for (var i = 0; i < userAnswers.length; i++) {
+      if (userAnswers[i] === answers[i]) {
+        score++;
+      }
+    }
+    if (score > 0) {
+      cheers = 'Nice work!'
+    }
+    if (score === questions.length) {
+      cheers = 'You nailed it!';
+    } else {
+      cheers = 'sorry';
+    }
+    alert('You got ' + score + ' questions correct. ' + cheers);
   }
-  if (score === questions.length) {
-    cheers = 'You nailed it!';
-  } else {
-    cheers = 'sorry';
-  }
-  alert('You got ' + score + ' questions correct. ' + cheers);
-}
 </script>
